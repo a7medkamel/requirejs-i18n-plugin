@@ -1,0 +1,26 @@
+{
+  "name": "requirejs-i18n-plugin",
+  "version": "0.1.0",
+  "description": "Load JSON localization files created by resx2json based on language/culture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BingAds/requirejs-i18n-plugin.git"
+  },
+  "author": "a7medkamel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BingAds/requirejs-i18n-plugin/issues"
+  },
+  "homepage": "https://github.com/BingAds/requirejs-i18n-plugin#readme",
+  "requirejs": {
+    "config": {
+      "paths": {
+        "component/i18n": "component/i18n/js/module"
+      }
+    }
+  }
+}

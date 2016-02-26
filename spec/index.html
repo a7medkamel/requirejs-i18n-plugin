@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script type="text/javascript" src="..\lib\requirejs\require.js"></script>
+    <script type="text/javascript">
+      require.config({
+        'baseUrl': '../',
+        'paths': {
+            'lib/underscore'          : 'lib/underscore/underscore'
+          //
+          , '$/i18n'                  : 'module/loader'
+          , 'spec/squire'             : 'lib/squire/src/Squire'
+          , 'component/i18n'          : 'module'
+        },
+        
+        'shim': {
+          'lib/underscore': {
+              'exports': '_'
+          }
+        },
+        'waitSeconds': 15
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <pre>
+// Tips
+        </pre>
+      </div>
+      <div class='row'>
+      </div>
+    </div>
+    <script type="text/javascript">
+      require(['spec/squire'], function(Squire){
+        var injector = new Squire();
+
+        injector
+          .mock({
+              'component/config/index'  : { get : function(){ return 'en-us'; } }
+            , 'data/i18n/root/en-us'    : { 'key' : 'cats are awesome and <%= adj %>!!!' }
+          })
+          .require(['$/i18n!root'], function(i18n_root){
+            var str = i18n_root.get('key', { adj : 'cute' });
+
+            alert(str);
+          })
+          ;
+      });
+    </script>
+  </body>
+</html>
